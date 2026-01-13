@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Study Timer</title>
+  <link rel="stylesheet" href="study timer.css">
+</head>
+<body>
+
+<div class="container">
+  <h1 id="title">Study Timer</h1>
+
+  <div id="timer">00:00:00</div>
+
+  <p id="usedTime">Used today: <span id="used">00:00:00</span> / <span id="dailyLimit">05:00:00</span></p>
+
+  <div class="controls">
+    <button id="startBtn">Start</button>
+    <button id="pauseBtn">⏸</button>
+    <button id="resetBtn">🔄</button>
+  </div>
+
+  <button id="settingsBtn">⚙️ Settings</button>
+</div>
+
+<div id="settingsPanel" class="panel">
+  <h2>Settings</h2>
+
+  <label>Language:</label>
+  <select id="langSelect">
+    <option value="en">English</option>
+    <option value="fa">فارسی</option>
+    <option value="kr">한국어</option>
+    <option value="fr">Français</option>
+    <option value="es">Español</option>
+  </select>
+
+  <label>Theme color:</label>
+  <input type="color" id="themeColor" value="#ff6a00">
+
+  <label>Alarm sound:</label>
+  <select id="soundSelect">
+    <option value="a">Energetic Alarm</option>
+  </select>
+
+  <button id="closeSettings">Close</button>
+</div>
+
+<!-- Energetic alarm sound embedded -->
+<audio id="soundA" src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_5f94e1a1d0.mp3?filename=energizing-8bit-chiptune-116385.mp3"></audio>
+
+<script src="study-timer.js"></script>
+</body>
+</html>

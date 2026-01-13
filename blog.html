@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Self-Discovery Blog</title>
+
+<style>
+body{
+  margin:0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(120deg,#f6e6ff,#e3f2fd);
+  color:#333;
+}
+
+header{
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:1px;
+  color:#6a1b9a;
+}
+
+nav a{
+  margin-left:18px;
+  text-decoration:none;
+  color:#444;
+  font-weight:500;
+}
+
+nav a:hover{
+  color:#6a1b9a;
+}
+
+
+.hero{
+  text-align: center;
+  padding:80px 20px;
+}
+
+.hero h1{
+  font-size:38px;
+  color:#4a148c;
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:720px;
+  margin:auto;
+  line-height:1.7;
+  font-size:20px;
+  text-align: center;
+  
+}
+
+
+.section{
+  max-width:900px;
+  padding:30px 18px;
+  margin:20px auto;
+  background:white;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.section h2{
+  color:#6a1b9a;
+}
+
+.section{
+    transition: all .35s ease;
+    position: relative;
+}
+
+
+.quote{
+  background:#f3e5f5;
+  padding:12px 14px;
+  border-radius:10px;
+  margin:8px 0;
+  font-style:italic;
+}
+
+
+@media(max-width:700px){
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+  .hero h1{
+    font-size:28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Self-Discovery Blog</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#posts">Blog</a>
+<a href="#exercises">Exercises</a>
+<a href="#quotes">Quotes</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+
+<div id="home" class="hero">
+<h1>Welcome to the Self-Discovery Blog</h1>
+<p>
+This is a gentle space for people who want to understand themselves better.
+Here I write about emotional awareness, healing, reflection, and personal growth.
+You are welcome here exactly as you are.
+</p>
+</div>
+
+
+<div id="about" class="section">
+<h2>About Me</h2>
+<p>
+Hello! My name is Aysha, and I am the writer of this blog.
+I created this space to explore my thoughts, emotions, and self-discovery journey.
+My goal is not to teach others — but to share what I am learning along the way.
+</p>
+</div>
+
+
+<div id="posts" class="section">
+<h2>Blog Posts</h2>
+
+<h3>Learning to Listen to Your Heart</h3>
+<p>
+Sometimes the world is too loud.
+Self-discovery begins the moment you slow down and listen to your own voice.
+Your feelings are valid, and your pace is enough.
+</p>
+
+<h3>Growing Through Difficult Days</h3>
+<p>
+Healing is not a straight line.
+Some days are heavy, some are bright — but every day shapes who we are becoming.
+</p>
+</div>
+
+<!-- EXERCISES -->
+<div id="exercises" class="section">
+<h2>Self-Discovery Exercises</h2>
+<ul>
+<li>✍️ Journal: “What do I truly need today?”</li>
+<li>🧠 Ask yourself: “Where am I being unkind to myself?”</li>
+<li>🌿 Breathe slowly for one minute and feel your body relax</li>
+<li>💭 Write a letter to your future self</li>
+</ul>
+</div>
+
+
+<div id="quotes" class="section">
+<h2>Quotes & Reflections</h2>
+
+<div class="quote">You are allowed to take up space.</div>
+<div class="quote">Healing takes time — and that is okay.</div>
+<div class="quote">You are becoming the person you needed when you were younger.</div>
+
+</div>
+
+
+<div id="contact" class="section">
+<h2>Contact Me</h2>
+<p>
+If you would like to share your thoughts or simply say hello,
+you can contact me by email or social platforms.
+We are learning together — gently and honestly.
+</p>
+</div>
+
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+sections.forEach(sec => {
+
+    sec.addEventListener("mouseenter", () => {
+        sec.style.transform = "scale(1.12) translate(25px, -25px)";
+        sec.style.boxShadow = "25px 25px 0px rgba(0,0,0,0.25)";
+        sec.style.zIndex = "5";
+    });
+
+    sec.addEventListener("mouseleave", () => {
+        sec.style.transform = "scale(1) translate(0px, 0px)";
+        sec.style.boxShadow = "0 8px 25px rgba(0,0,0,0.08)";
+        sec.style.zIndex = "1";
+    });
+
+});
+</script>
+
+
+</body>
+</html>
