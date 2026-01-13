@@ -4,7 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pro Study Timer</title>
-  <link rel="stylesheet" href="study timer.css">
+
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  text-align: center;
+  width: 350px;
+}
+
+#timer {
+  font-size: 3rem;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+#usedTime {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  padding: 12px 25px;
+  margin: 5px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  transform: scale(1.05);
+}
+
+#settingsBtn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #00f260, #0575e6);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#settingsBtn:hover {
+  transform: scale(1.05);
+}
+
+/* Settings Panel */
+.panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  width: 300px;
+  text-align: left;
+  transition: 0.3s;
+  z-index: 100;
+}
+
+.panel.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.panel label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.panel select, .panel input[type=color] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+#closeSettings {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #f83600, #f9d423);
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+#closeSettings:hover {
+  transform: scale(1.05);
+}
+
+  </style>
 </head>
 <body>
 
@@ -47,9 +167,84 @@
   <button id="closeSettings">Close</button>
 </div>
 
-<!-- Energetic alarm sound embedded -->
 <audio id="soundA" src="https://cdn.pixabay.com/download/audio/2023/03/01/audio_5f94e1a1d0.mp3?filename=energizing-8bit-chiptune-116385.mp3"></audio>
 
-<script src="study-timer.js"></script>
+<script>
+    
+const timerEl = document.getElementById("timer");
+const usedEl = document.getElementById("used");
+const startBtn = document.getElementById("startBtn");
+const pauseBtn = document.getElementById("pauseBtn");
+const resetBtn = document.getElementById("resetBtn");
+const settingsBtn = document.getElementById("settingsBtn");
+const settingsPanel = document.getElementById("settingsPanel");
+const closeSettings = document.getElementById("closeSettings");
+const themeColor = document.getElementById("themeColor");
+const soundSelect = document.getElementById("soundSelect");
+
+const soundA = document.getElementById("soundA");
+
+let timer = 0;
+let usedTime = localStorage.getItem("usedTime") ? parseInt(localStorage.getItem("usedTime")) : 0;
+let interval = null;
+const dailyLimit = 5 * 60 * 60; // 5 hours
+
+function formatTime(sec) {
+  const h = String(Math.floor(sec / 3600)).padStart(2,'0');
+  const m = String(Math.floor((sec % 3600)/60)).padStart(2,'0');
+  const s = String(sec % 60).padStart(2,'0');
+  return `${h}:${m}:${s}`;
+}
+
+function updateUI() {
+  timerEl.textContent = formatTime(timer);
+  usedEl.textContent = formatTime(usedTime);
+}
+
+startBtn.addEventListener("click", () => {
+  if (!interval) {
+    interval = setInterval(() => {
+      timer++;
+      usedTime++;
+      updateUI();
+      localStorage.setItem("usedTime", usedTime);
+
+      if (usedTime >= dailyLimit) {
+        clearInterval(interval);
+        interval = null;
+        alert("🎉 Daily limit reached!");
+        playSound();
+      }
+    }, 1000);
+  }
+});
+
+pauseBtn.addEventListener("click", () => {
+  clearInterval(interval);
+  interval = null;
+});
+
+resetBtn.addEventListener("click", () => {
+  timer = 0;
+  updateUI();
+});
+
+settingsBtn.addEventListener("click", () => settingsPanel.classList.add("active"));
+closeSettings.addEventListener("click", () => settingsPanel.classList.remove("active"));
+
+themeColor.addEventListener("input", (e) => {
+  document.querySelectorAll(".controls button").forEach(btn => {
+    btn.style.background = `linear-gradient(45deg, ${e.target.value}, #ee0979)`;
+  });
+});
+
+function playSound() {
+  if (soundSelect.value === "a") soundA.play();
+}
+
+updateUI();
+
+</script>
+
 </body>
 </html>

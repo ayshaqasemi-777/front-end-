@@ -4,7 +4,90 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Calculator</title>
-        <link rel="stylesheet" href="calculator.css">
+       
+        <style>
+            body {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ font-family: Arial, Helvetica, sans-serif;
+ background: #03a064;   
+}
+
+header {
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    align-items: center;
+    margin-top: 0px;
+}
+
+.calculator {
+    width: 380px;
+    height: 570px;
+    background-color: #053120;
+    padding: 50px;
+    padding-top: 20px;
+    border-radius: 20px;
+}
+
+#display {
+   width: 97%;
+   height: 70px;
+   margin-bottom: 18px;
+   font-size: 28px;
+   text-align: right;
+   padding: 5px;
+   border-radius: 10px;
+   box-shadow: 4px 0 6px rgba(230, 225, 225, 0.4);
+   color: aliceblue;
+}
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    gap: 8px;
+}
+
+button {
+    padding: 15px;
+    font-size: 40px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 4px 0 6px rgba(230, 225, 225, 0.4);
+    color: #03a064;
+}
+
+.equal {
+  grid-column: span 2;
+ background: #03a064;   
+ color: beige;
+ 
+ 
+}
+
+@media (max-width: 480px){
+
+    .calculator{
+        width: 100%;
+        padding: 10px;
+    }
+
+    .display{
+        font-size: 18px;
+        height: 50px;
+    }
+
+    .buttons button{
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+        </style>
     </head>
     <body>
        
@@ -41,9 +124,28 @@
            
         </div>
     </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  let display = document.getElementById("display");
+
+  window.appendValue = function (value) {
+    display.value += value;
+  }
+
+  window.clearDisplay = function () {
+    display.value = "";
+  }
+
+  window.calculate = function () {
+    try {
+      display.value = eval(display.value);
+    } catch {
+      display.value = "Error";
+    }
+  }
+
+});
+</script>
     </body>
-
-     <script src="script.js"></script>
-
 </html>
