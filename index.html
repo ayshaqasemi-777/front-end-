@@ -1,34 +1,418 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aysha Qasemi Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
+   <head> 
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+     <title>Aysha Qasemi Portfolio</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+      <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg,#f6e6ff,#e3f2fd);
+  color: #333;
+}
 
 
-<header>
-  <div class="logo">Aysha Qasemi</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #6a1b9a;
+}
+
+header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #6a1b9a;
+  transition: 0.3s;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+header nav a:hover {
+  color: #6a1b9a;
+}
 
 
-<section id="home" class="hero">
-  <div class="hero-text">
-    <h1>Hi, I'm Aysha Qasemi</h1>
-    <h3>Web Developer & Designer</h3>
-    <p>I create modern, beautiful, and interactive web experiences. With real projects and professional code, I turn ideas into reality.</p>
+.hero-info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
 
-     <div class="hero-info">
+.hero-info .location,
+.hero-info .availability {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #6a1b9a;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.hero-info .location i,
+.hero-info .availability i {
+    font-size: 16px;
+}
+
+.hero-info .location:hover,
+.hero-info .availability:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  gap: 50px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  color: #4a148c;
+  margin-bottom: 15px;
+}
+
+.hero-text h3 {
+  font-size: 28px;
+  color: #7b1fa2;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #6a1b9a;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.hero .btn:hover {
+  background: #7b1fa2;
+  transform: scale(1.05);
+}
+
+.hero-info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-info .location,
+.hero-info .availability {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #6a1b9a;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.hero-info .location i,
+.hero-info .availability i {
+    font-size: 16px;
+}
+
+.hero-info .location:hover,
+.hero-info .availability:hover {
+    background: #7b1fa2;
+    transform: scale(1.05);
+}
+
+.hero-image img {
+  max-width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+
+.section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  transition: 0.35s;
+  font-size: 20px;
+}
+
+.section h2 {
+  color: #6a1b9a;
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+}
+
+
+.projects-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+
+.project-card {
+  min-width: 300px;
+  background: #f3e5f5;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: 0.35s;
+  flex-shrink: 0;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.35s;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3 {
+  color: #4a148c;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.project-info a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 8px 18px;
+  background: #6a1b9a;
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.project-info a:hover {
+  background: #7b1fa2;
+  transform: scale(1.05);
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.service-card {
+  background: #f3e5f5;
+  padding: 25px 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: 0.35s;
+}
+
+.service-card i {
+  font-size: 36px;
+  color: #6a1b9a;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  color: #4a148c;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+ 
+#contact .btn {
+  margin-right: 15px;
+}
+.contact-links {
+    display: flex;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: #fff;
+    background: #6a1b9a;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+    background: #4a148c;
+    transform: scale(1.05);
+}
+
+
+@media(max-width: 900px){
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image img {
+    max-width: 250px;
+  }
+  .projects-container {
+    justify-content: start;
+  }
+}
+
+@media(max-width: 600px){
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+  }
+  .hero-text h1 {
+    font-size: 36px;
+  }
+  .hero-text h3 {
+    font-size: 24px;
+  }
+}
+
+.hidden { opacity: 0; transform: translateY(50px); transition: all 0.7s ease-out; }
+.visible { opacity: 1; transform: translateY(0); }
+
+
+@keyframes fadeInLeft {
+    0% {opacity:0; transform: translateX(-50px);}
+    100% {opacity:1; transform: translateX(0);}
+}
+
+@keyframes fadeInRight {
+    0% {opacity:0; transform: translateX(50px);}
+    100% {opacity:1; transform: translateX(0);}
+}
+
+.projects-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+    background: #6a1b9a;
+    border-radius: 10px;
+}
+
+.projects-container::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+}
+
+
+
+      </style>
+    </head> 
+    <body>
+       <header>
+         <div class="logo">Aysha Qasemi</div>
+          <nav> 
+            <a href="#home">Home</a> 
+            <a href="#about">About</a> 
+            <a href="#projects">Projects</a> 
+            <a href="#services">Services</a> 
+            <a href="#contact">Contact</a>
+           </nav> 
+          </header> 
+          <section id="home" class="hero"> 
+            <div class="hero-text"> 
+              <h1>Hi, I'm Aysha Qasemi</h1> 
+              <h3>Web Developer & Designer</h3> 
+              <p>I create modern, beautiful, and interactive web experiences. With real projects and professional code, I turn ideas into reality.</p> 
+              <div class="hero-info">
       <div class="location">
         <i class="fa-solid fa-location-dot"></i> Afghanistan
       </div>
@@ -36,103 +420,147 @@
         <i class="fa-solid fa-circle-check"></i> Available for Work
       </div>
     </div>
+              <a href="#contact" class="btn">Hire Me</a> 
+            </div> 
+            <div class="hero-image"> 
+              <img src="https://i.pinimg.com/736x/27/f6/ec/27f6ecd6c0c60b6109b9825830aac4fe.jpg" alt="Aysha Qasemi"> 
+            </div> 
+          </section> 
+          <section id="about" class="section"> 
+            <h2>About Me</h2> 
+            <p>Hello! I'm Aysha Qasemi, a passionate web developer and designer from Afghanistan. I love transforming ideas into digital experiences. I have hands-on experience in HTML, CSS, JavaScript, and building complete web projects. My philosophy is clean code, creative design, and smooth user experience. When I'm not coding, I explore creativity through blogging and learning new skills in digital arts.</p> 
+          </section> 
 
-    <a href="#contact" class="btn">Hire Me</a>
-  </div>
-  <div class="hero-image">
-    <img src="https://i.pinimg.com/736x/27/f6/ec/27f6ecd6c0c60b6109b9825830aac4fe.jpg" alt="Aysha Qasemi">
-  </div>
-</section>
+          <section id="projects" class="section"> 
+            <h2> Projects</h2> 
+            <div class="projects-container"> 
+              <div class="project-card"> 
+                <img src="https://i.pinimg.com/736x/08/14/34/08143415ffa0d4612b515ee7840b9314.jpg" alt="Study Timer"> 
+                <div class="project-info"> 
+                  <h3>Study Timer</h3> 
+                  <p>Track your study sessions efficiently with this interactive timer. Built with HTML, CSS, and JS.</p>
+                  <a href="https://ayshaqasemi-777.github.io/front-end-/study time.html" target="_blank">Live Demo</a> 
+                </div> 
+              </div>
+               <div class="project-card"> 
+                <img src="https://i.pinimg.com/736x/c0/b3/bd/c0b3bd533fb9aa88d18d014967e5530e.jpg" alt="Blog Project"> 
+                <div class="project-info"> 
+                  <h3>Self-Discovery Blog</h3> 
+                  <p>A personal blog for emotional awareness and self-discovery. Built with HTML & CSS.</p> 
+                  <a href="https://ayshaqasemi-777.github.io/front-end-/blog.html" target="_blank">Live Demo</a> 
+                </div> 
+              </div> 
+              <div class="project-card"> 
+                <img src="https://i.pinimg.com/736x/2c/c9/2d/2cc92d57f4e3829e6d59833a429d364c.jpg" alt="Calculator"> 
+                <div class="project-info"> 
+                  <h3>Calculator</h3> 
+                  <p>A responsive calculator with basic operations. Built using HTML, CSS & JS.</p> 
+                  <a href="https://ayshaqasemi-777.github.io/front-end-/calculator one.html" target="_blank">Live Demo</a> 
+                </div> 
+              </div> 
+              <div class="project-card"> 
+                <img src="https://i.pinimg.com/736x/90/43/69/904369b775bc687eace68ea9f814723d.jpg" alt="To-Do List"> 
+                <div class="project-info"> 
+                  <h3>To-Do List</h3> 
+                  <p>Organize your tasks with this interactive To-Do List app. Built with HTML, CSS & JS.</p> 
+                  <a href="https://ayshaqasemi-777.github.io/front-end-/todo-list.html" target="_blank">Live Demo</a> 
+                </div> 
+              </div> 
+            </div> 
+          </section> 
+          <section id="services" class="section"> 
+            <h2>Services</h2> 
+            <div class="services-container"> 
+              <div class="service-card"> 
+                <i class="fa-solid fa-code"></i> 
+                <h3>Web Development</h3> 
+                <p>Building responsive, modern websites with clean code and smooth UX/UI.</p> 
+              </div> 
+              <div class="service-card"> 
+                <i class="fa-solid fa-paintbrush"></i> 
+                <h3>Design</h3> 
+                <p>Creating beautiful interfaces and user-friendly layouts with creative design.</p> 
+              </div> 
+              <div class="service-card"> 
+                <i class="fa-solid fa-mobile-screen-button"></i> 
+                <h3>Responsive Apps</h3> 
+                <p>Ensuring websites look perfect on every device and screen size.</p> 
+              </div> 
+            </div> 
+          </section> 
+          <section id="contact" class="section"> 
+            <h2>Contact Me</h2> 
+            <p>If you want to work together, feel free to reach out!</p> 
+            <div class="contact-links">
+               <a href="mailto:ayshaqasemi@gmail.com" class="btn">Email Me</a> 
+               <a href="https://www.instagram.com/frontend.aysha" class="btn" target="_blank">Instagram</a> 
+              </div> 
+            </section> 
+            <script>
+              const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 50){
+        header.style.padding = "10px 40px";
+        header.style.background = "rgba(255,255,255,0.95)";
+        header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.15)";
+    } else {
+        header.style.padding = "15px 40px";
+        header.style.background = "#fff";
+        header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+    }
+});
+
+// ===== Section Fade-In =====
+const sections = document.querySelectorAll('.section, .hero');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, {threshold: 0.2});
+
+sections.forEach(sec => {
+    sec.classList.add('hidden');
+    observer.observe(sec);
+});
+
+// ===== Project Drag Scroll =====
+const projectsContainer = document.querySelector('.projects-container');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+if(projectsContainer){
+    projectsContainer.addEventListener('mousedown', (e) => {
+        isDown = true;
+        projectsContainer.classList.add('active-drag');
+        startX = e.pageX - projectsContainer.offsetLeft;
+        scrollLeft = projectsContainer.scrollLeft;
+    });
+
+    projectsContainer.addEventListener('mouseleave', () => {
+        isDown = false;
+        projectsContainer.classList.remove('active-drag');
+    });
+
+    projectsContainer.addEventListener('mouseup', () => {
+        isDown = false;
+        projectsContainer.classList.remove('active-drag');
+    });
+
+    projectsContainer.addEventListener('mousemove', (e) => {
+        if(!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - projectsContainer.offsetLeft;
+        const walk = (x - startX) * 2; //scroll-fast
+        projectsContainer.scrollLeft = scrollLeft - walk;
+    });
+}
 
 
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>Hello! I'm Aysha Qasemi, a passionate web developer and designer from Afghanistan. I love transforming ideas into digital experiences.  
-  I have hands-on experience in HTML, CSS, JavaScript, and building complete web projects.  
-  My philosophy is clean code, creative design, and smooth user experience.  
-  When I'm not coding, I explore creativity through blogging and learning new skills in digital arts.</p>
-</section>
-
-
-<section id="projects" class="section">
-  <h2> Projects</h2>
-  <div class="projects-container">
-    
-    <div class="project-card">
-      <img src="https://i.pinimg.com/736x/31/b4/54/31b45454b1bc0882e5112b4b34604b12.jpg" alt="Study Timer">
-      <div class="project-info">
-        <h3>Study Timer</h3>
-        <p>Track your study sessions efficiently with this interactive timer. Built with HTML, CSS, and JS.</p>
-     
-        <a href="https://ayshaqasemi-777.github.io/front-end-/study time.html" target="_blank">GitHub</a>
-      </div>
-    </div>
-
-  
-    <div class="project-card">
-      <img src="https://i.pinimg.com/736x/c0/b3/bd/c0b3bd533fb9aa88d18d014967e5530e.jpg" alt="Blog Project">
-      <div class="project-info">
-        <h3>Self-Discovery Blog</h3>
-        <p>A personal blog for emotional awareness and self-discovery. Built with HTML & CSS.</p>
-      
-        <a href="https://ayshaqasemi-777.github.io/front-end-/blog.html" target="_blank">GitHub</a>
-      </div>
-    </div>
-
-    
-    <div class="project-card">
-      <img src="https://i.pinimg.com/736x/2c/c9/2d/2cc92d57f4e3829e6d59833a429d364c.jpg" alt="Calculator">
-      <div class="project-info">
-        <h3>Calculator</h3>
-        <p>A responsive calculator with basic operations. Built using HTML, CSS & JS.</p>
-        
-        <a href="https://ayshaqasemi-777.github.io/front-end-/calculator one.html" target="_blank">GitHub</a>
-      </div>
-    </div>
-
-  
-    <div class="project-card">
-      <img src="https://i.pinimg.com/736x/90/43/69/904369b775bc687eace68ea9f814723d.jpg" alt="To-Do List">
-      <div class="project-info">
-        <h3>To-Do List</h3>
-        <p>Organize your tasks with this interactive To-Do List app. Built with HTML, CSS & JS.</p>
-        <a href="https://ayshaqasemi-777.github.io/front-end-/todo-list.html" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="section">
-  <h2>Services</h2>
-  <div class="services-container">
-    <div class="service-card">
-      <i class="fa-solid fa-code"></i>
-      <h3>Web Development</h3>
-      <p>Building responsive, modern websites with clean code and smooth UX/UI.</p>
-    </div>
-    <div class="service-card">
-      <i class="fa-solid fa-paintbrush"></i>
-      <h3>Design</h3>
-      <p>Creating beautiful interfaces and user-friendly layouts with creative design.</p>
-    </div>
-    <div class="service-card">
-      <i class="fa-solid fa-mobile-screen-button"></i>
-      <h3>Responsive Apps</h3>
-      <p>Ensuring websites look perfect on every device and screen size.</p>
-    </div>
-  </div>
-</section>
-
-
-<section id="contact" class="section">
-  <h2>Contact Me</h2>
-  <p>If you want to work together, feel free to reach out!</p>
-  <div class="contact-links">
-  <a href="mailto:ayshaqasemi@gmail.com" class="btn">Email Me</a>
-  <a href="https://www.instagram.com/frontend.aysha" class="btn" target="_blank">Instagram</a>
-  </div>
-</section>
-
-<script src="main.js"></script>
-</body>
-</html>
+            </script> 
+          </body>
+ </html>
