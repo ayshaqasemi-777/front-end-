@@ -4,7 +4,207 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modern Landing Page Development</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+  --primary: #7c4dff;
+  --secondary: #b488ffad;
+  --accent: #e02699;
+  --soft-bg: #c2aaf1;
+  --card-bg: #dd95f0;
+  --text-dark: #2e1065;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a002b, #2d0052);
+  color: var(--light);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: 500;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #b388ff, #ff80ab);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.about-section {
+  padding: 100px 10%;
+  background: #ffffff;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-image img {
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(124,77,255,0.3);
+}
+
+.about-text {
+  max-width: 500px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--primary);
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #9c27b0;
+  transform: translateY(-5px);
+}
+
+.section {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  width: 250px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Scroll Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body {
+  background: linear-gradient(135deg, #f5f0ff, #ffffff);
+  color: var(--text-dark);
+}
+
+.showcase-section {
+  padding: 100px 0;
+  background: linear-gradient(90deg, #ffffff, #f3e8ff);
+  overflow: hidden;
+}
+
+.showcase-section h2 {
+    padding: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
+.horizontal-scroll {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-track {
+  display: flex;
+  gap: 40px;
+  animation: autoScroll 25s linear infinite;
+}
+
+.example-card {
+  min-width: 300px;
+  padding: 40px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(124,77,255,0.2);
+  text-align: center;
+  font-weight: 600;
+  transition: 0.4s;
+}
+
+.example-card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #b388ff, #ff6ec7);
+  color: white;
+}
+
+/* اسکرول نرم با مکث طبیعی */
+@keyframes autoScroll {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-300px); }
+  20% { transform: translateX(-300px); }
+  30% { transform: translateX(-600px); }
+  40% { transform: translateX(-600px); }
+  50% { transform: translateX(-900px); }
+  60% { transform: translateX(-900px); }
+  70% { transform: translateX(-1200px); }
+  80% { transform: translateX(-1200px); }
+  100% { transform: translateX(-1500px); }
+}
+  </style>
 </head>
 <body>
 
@@ -94,6 +294,8 @@
 
 </section>
 
-<script src="script.js"></script>
+<script>
+    const reveals = document.querySelectorAll(".reveal"); function revealOnScroll() { reveals.forEach((element) => { const windowHeight = window.innerHeight; const elementTop = element.getBoundingClientRect().top; const revealPoint = 100; if (elementTop < windowHeight - revealPoint) { element.classList.add("active"); } }); } window.addEventListener("scroll", revealOnScroll); // Smooth fade-in on load window.addEventListener("load", () => { document.body.style.opacity = "1"; });
+</script>
 </body>
 </html>
